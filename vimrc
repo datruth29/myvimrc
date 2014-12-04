@@ -11,34 +11,13 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'Raimondi/delimitMate'
+Plugin 'kien/ctrlp.vim'
 call vundle#end()
 
-"Primary vimrc settings"
+"Base vimrc settings"
 filetype plugin indent on
-let base16colorspace=256
-
-if &t_Co > 2 || has("gui_running")
-    syntax on
-endif
-
-if has("gui_running")
-    set background=dark "needed for darker colorschemes"
-    colorscheme base16-monokai
-
-    set lines=999 "set window to max height"
-    set columns=999 "set window to max width"
-
-    set guioptions-=m "remove menubar"
-    set guioptions-=T "remove toolbar"
-
-    set cursorline
-    hi clear cursorline
-    hi cursorline gui=underline
-endif
-
-if has("win32") 
-    set guifont=consolas:h9:cANSI
-endif
+set background=dark "needed for darker colorschemes"
+colorscheme base16-default
 
 set expandtab
 set tabstop=4
@@ -73,7 +52,33 @@ elseif has("win32")
     set noswapfile
 endif
 
+if has("win32")
+    set guifont=consolas:h9:cANSI
+endif
+
+if &t_Co > 2 || has("gui_running")
+    syntax on
+endif
+
+if has("gui_running")
+
+    set lines=999 "set window to max height"
+    set columns=999 "set window to max width"
+
+    set guioptions-=m "remove menubar"
+    set guioptions-=T "remove toolbar"
+
+    set cursorline
+    hi clear cursorline
+    hi cursorline gui=underline
+endif
+
 "NerdTree Settings"
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
 let NERDTreeShowBookmarks=1
+
+"Airline Settings"
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_theme = 'wombat'
