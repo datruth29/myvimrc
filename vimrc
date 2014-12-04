@@ -9,7 +9,7 @@ call vundle#begin(path)
 "Plugins"
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'itchyny/lightline.vim'
+Plugin 'bling/vim-airline'
 Plugin 'Raimondi/delimitMate'
 call vundle#end()
 
