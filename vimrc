@@ -12,12 +12,17 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
+
+"Javascript Specific"
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'JavaScript-Indent'
 call vundle#end()
 
 "Base vimrc settings"
 filetype plugin indent on
 set background=dark "needed for darker colorschemes"
-colorscheme base16-default
+colorscheme base16-shapeshifter
 
 set expandtab
 set tabstop=4
@@ -82,3 +87,6 @@ let NERDTreeShowBookmarks=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_theme = 'wombat'
+
+"Javascript Syntex"
+let g:used_javascript_libs = 'jquery'
