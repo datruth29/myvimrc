@@ -14,9 +14,11 @@ Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 
 "Javascript Specific"
-Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'JavaScript-Indent'
+Plugin 'pangloss/vim-javascript'
+
+"Quality of Life"
+Plugin 'bronson/vim-trailing-whitespace'
 call vundle#end()
 
 "Base vimrc settings"
@@ -24,28 +26,45 @@ filetype plugin indent on
 set background=dark "needed for darker colorschemes"
 colorscheme base16-shapeshifter
 
+" Dealing with tabs
 set expandtab
 set tabstop=4
 set backspace=2
 set softtabstop=4
 set shiftwidth=4
-set nowrap
-set smarttab
 set shiftround
 set autoindent
+set smarttab
+
+" Editor visual changes
+set nowrap
 set number
 set ruler
 set showmatch
+set scrolloff=5
+
+" Search changes
 set smartcase
 set hlsearch
 set incsearch
-set scrolloff=5
+
+" No error bells or whistles
 set visualbell
 set noerrorbells
+
+" Statusline stuff
 set laststatus=2
 set statusline=%n\ %F\ %m%r\%=%c-%l/%L
+
+
+" Changes for command line tab completion
+set wildmode=longest,list,full
+set wildmenu
+
+" Misc
 set pastetoggle=<F3>
-set mouse=a
+set mouse=a " I like using the mouse
+set autoread " I'm going to make it reload anyway
 
 if has("unix")
     set backup
@@ -86,7 +105,25 @@ let NERDTreeShowBookmarks=1
 "Airline Settings"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_theme = 'wombat'
 
 "Javascript Syntex"
 let g:used_javascript_libs = 'jquery'
+
+"DelimitMate"
+let delimitMate_expand_space = 1
+let delimitMate_expand_cr = 1
+
+" Keybindings
+" Set Leader to Space
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
+" Quicker binding to clip board
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
