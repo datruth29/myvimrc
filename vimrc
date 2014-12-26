@@ -12,6 +12,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
+Plugin 'ervandew/supertab'
 
 "Javascript Specific"
 Plugin 'othree/javascript-libraries-syntax.vim'
@@ -125,5 +126,6 @@ vmap <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
-vmap <Leader>p "+p
-vmap <Leader>P "+P
+
+" SuperTab Settings
+let g:SuperTabDefaultCompletionType = "context"
