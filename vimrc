@@ -57,6 +57,8 @@ set noerrorbells
 set laststatus=2
 set statusline=%n\ %F\ %m%r\%=%c-%l/%L
 
+" Autocmds
+au FileType * setlocal formatoptions-=r formatoptions-=o
 
 " Changes for command line tab completion
 set wildmode=longest,list,full
@@ -116,6 +118,9 @@ let g:used_javascript_libs = 'jquery'
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 1
 
+" SuperTab
+let g:SuperTabDefaultCompletionType = "context"
+
 " Keybindings
 " Set Leader to Space
 nnoremap <SPACE> <Nop>
@@ -126,6 +131,3 @@ vmap <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
-
-" SuperTab Settings
-let g:SuperTabDefaultCompletionType = "context"
