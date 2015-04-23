@@ -13,10 +13,29 @@ Plugin 'bling/vim-airline'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic'
+
+"Colorschemes"
+Plugin 'lsdr/monokai'
+Plugin 'tomasr/molokai'
 
 "Javascript Specific"
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'pangloss/vim-javascript'
+
+"Tags and Auto Complete"
+Plugin 'xolox/vim-misc'
+Plugin 'vim-scripts/OmniCppComplete'
+Plugin 'Rip-Rip/clang_complete'
+
+"Language Specific"
+"Python"
+Plugin 'klen/python-mode'
+Plugin 'davidhalter/jedi-vim'
+
+"Syntax Highlighting
+" C/C++
+Plugin 'octol/vim-cpp-enhanced-highlight'
 
 "Quality of Life"
 Plugin 'bronson/vim-trailing-whitespace'
@@ -24,8 +43,9 @@ call vundle#end()
 
 "Base vimrc settings"
 filetype plugin indent on
-set background=dark "needed for darker colorschemes"
-colorscheme base16-shapeshifter
+"set background=dark needed for darker colorschemes"
+colorscheme monokai
+
 
 " Dealing with tabs
 set expandtab
@@ -36,13 +56,16 @@ set shiftwidth=4
 set shiftround
 set autoindent
 set smarttab
+set cino=(0
 
 " Editor visual changes
 set nowrap
 set number
+set relativenumber
 set ruler
 set showmatch
 set scrolloff=5
+set completeopt=menuone,longest
 
 " Search changes
 set smartcase
@@ -59,6 +82,7 @@ set statusline=%n\ %F\ %m%r\%=%c-%l/%L
 
 " Autocmds
 au FileType * setlocal formatoptions-=r formatoptions-=o
+au FileType python set omnifunc=pythoncomplete#Complete
 
 " Changes for command line tab completion
 set wildmode=longest,list,full
@@ -75,7 +99,7 @@ if has("unix")
     set directory=/tmp
 elseif has("win32")
     set backup
-    set backupdir=C:\Windows\Temp
+    set backupdir=C:\\vimtemp
     set noswapfile
 endif
 
@@ -109,7 +133,7 @@ let NERDTreeShowBookmarks=1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme = 'wombat'
+let g:airline_theme = 'molokai'
 
 "Javascript Syntex"
 let g:used_javascript_libs = 'jquery'
@@ -120,6 +144,59 @@ let delimitMate_expand_cr = 1
 
 " SuperTab
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabClosePreviewOnPopupClose = 1
+
+" EasyTags
+set tags=./tags;$HOME/vimtags;
+
+" Clang Complete
+let g:clang_complete_auto = 0
+let g:clang_complete_copen = 0
+let g:clang_hl_errors = 1
+let g:clang_periodic_quickfix = 0
+let g:clang_snippets = 0
+let g:clang_conceal_snippets = 0
+let g:clang_exec = 'C:\llvm\bin\clang.exe'
+let g:clang_user_options = '|| exit 0'
+let g:clang_use_library = 1
+let g:clang_library_path = 'C:\llvm\bin'
+let g:clang_debug = 1
+
+" Syntastic "
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers=["flake8"]
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_python_flake8_post_args = "--max-line-length=99"
+highlight link SyntasticError Error
+highlight link SyntasticWarning WarningMsg
+
+" Python-Mode "
+let g:pymode_lint_on_write = 0
+let g:pymode_folding = 0
+let g:pymode_doc = 1
+let g:pymode_key = 'K'
+let g:pymode_virtualenv = 1
+let g:pymode_breakpoint = 0
+let g:pymode_syntax = 1
+let g:pymode_rope = 0
+let g:pymode_syntax = 0
+let g:pymode_syntax_all = 0
+let g:pymode_syntax_space_errors = 0
+let g:pymode_options_max_line_length = 99
+
+" Jedi "
+let g:jedi#auto_vim_configuration = 1
+let g:jedi#popup_on_dot = 0
+let g:jedi#show_call_signatures = 2
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#use_splits_not_buffers = "left"
+
 
 " Keybindings
 " Set Leader to Space
@@ -131,3 +208,6 @@ vmap <Leader>y "+y
 vmap <Leader>d "+d
 nmap <Leader>p "+p
 nmap <Leader>P "+P
+
+" Create new lines without going into insert mode
+nmap <Leader><CR> m`o<ESC>``
