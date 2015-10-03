@@ -19,10 +19,6 @@ Plugin 'scrooloose/syntastic'
 Plugin 'lsdr/monokai'
 Plugin 'tomasr/molokai'
 
-"Javascript Specific"
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'pangloss/vim-javascript'
-
 "Tags and Auto Complete"
 Plugin 'xolox/vim-misc'
 Plugin 'vim-scripts/OmniCppComplete'
@@ -33,9 +29,16 @@ Plugin 'Rip-Rip/clang_complete'
 Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
 
-"Syntax Highlighting
+"Javascript Specific"
+Plugin 'pangloss/vim-javascript'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'jelera/vim-javascript-syntax'
+
 " C/C++
 Plugin 'octol/vim-cpp-enhanced-highlight'
+
+" Postgresql
+Plugin 'exu/pgsql.vim'
 
 "Quality of Life"
 Plugin 'bronson/vim-trailing-whitespace'
@@ -180,7 +183,7 @@ highlight link SyntasticWarning WarningMsg
 let g:pymode_lint_on_write = 0
 let g:pymode_folding = 0
 let g:pymode_doc = 1
-let g:pymode_key = 'K'
+let g:pymode_doc_bind = 'K'
 let g:pymode_virtualenv = 1
 let g:pymode_breakpoint = 0
 let g:pymode_syntax = 1
@@ -196,6 +199,9 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 2
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#use_splits_not_buffers = "left"
+
+" Syntax highlighting file extensions "
+au BufNewFile,BufRead *.md set syntax=markdown
 
 
 " Keybindings
