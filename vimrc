@@ -99,13 +99,13 @@ if has("unix")
     set backup
     set backupdir=/tmp
     set directory=/tmp
-elseif has("win32")
+elseif has("win32") || has("win64")
     set backup
     set backupdir=C:\\vimtemp
     set noswapfile
 endif
 
-if has("win32")
+if has("win32") || has("win64")
     set guifont=consolas:h9:cANSI
 endif
 
