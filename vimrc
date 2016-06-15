@@ -22,7 +22,6 @@ Plugin 'tomasr/molokai'
 "Tags and Auto Complete"
 Plugin 'xolox/vim-misc'
 Plugin 'vim-scripts/OmniCppComplete'
-Plugin 'Rip-Rip/clang_complete'
 
 "Language Specific"
 "Python"
@@ -151,19 +150,6 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 
 " EasyTags
 set tags=./tags;$HOME/vimtags;
-
-" Clang Complete
-let g:clang_complete_auto = 0
-let g:clang_complete_copen = 0
-let g:clang_hl_errors = 1
-let g:clang_periodic_quickfix = 0
-let g:clang_snippets = 0
-let g:clang_conceal_snippets = 0
-let g:clang_exec = 'C:\llvm\bin\clang.exe'
-let g:clang_user_options = '|| exit 0'
-let g:clang_use_library = 1
-let g:clang_library_path = 'C:\llvm\bin'
-let g:clang_debug = 1
 
 " Syntastic "
 set statusline+=%#warningmsg#
