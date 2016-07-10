@@ -10,6 +10,7 @@ call vundle#begin(path)
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Raimondi/delimitMate'
 Plugin 'kien/ctrlp.vim'
 Plugin 'ervandew/supertab'
@@ -60,6 +61,8 @@ set autoindent
 set smarttab
 set cino=(0
 
+" Dealing with File Formats
+set ff=unix
 " Editor visual changes
 set nowrap
 set number
@@ -160,6 +163,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers=["flake8"]
+let g:syntastic_javascript_checkers=["eslint"]
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_python_flake8_post_args = "--max-line-length=99"
 highlight link SyntasticError Error
