@@ -56,8 +56,6 @@ set autoindent
 set smarttab
 set cino=(0
 
-" Dealing with File Formats
-set ff=unix
 " Editor visual changes
 set nowrap
 set number
