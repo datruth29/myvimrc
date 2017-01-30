@@ -11,17 +11,13 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'bling/vim-airline'
 Plugin 'Raimondi/delimitMate'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/syntastic'
 
 "Colorschemes"
 Plugin 'lsdr/monokai'
 Plugin 'tomasr/molokai'
-
-"Tags and Auto Complete"
-Plugin 'xolox/vim-misc'
-Plugin 'vim-scripts/OmniCppComplete'
 
 "Language Specific"
 "Python"
@@ -45,7 +41,6 @@ call vundle#end()
 
 "Base vimrc settings"
 filetype plugin indent on
-"set background=dark needed for darker colorschemes"
 colorscheme monokai
 
 
