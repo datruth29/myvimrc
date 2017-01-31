@@ -13,17 +13,13 @@ Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Raimondi/delimitMate'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'tmhedberg/matchit'
 
 "Colorschemes"
 Plugin 'lsdr/monokai'
 Plugin 'tomasr/molokai'
-
-"Tags and Auto Complete"
-Plugin 'xolox/vim-misc'
-Plugin 'vim-scripts/OmniCppComplete'
 
 "Language Specific"
 "Python"
@@ -47,7 +43,6 @@ call vundle#end()
 
 "Base vimrc settings"
 filetype plugin indent on
-"set background=dark needed for darker colorschemes"
 colorscheme monokai
 
 
@@ -62,8 +57,6 @@ set autoindent
 set smarttab
 set cino=(0
 
-" Dealing with File Formats
-set ff=unix
 " Editor visual changes
 set nowrap
 set number
