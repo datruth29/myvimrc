@@ -9,12 +9,13 @@ call vundle#begin(path)
 "Plugins"
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Raimondi/delimitMate'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
-Plugin 'scrooloose/syntastic'
+Plugin 'tmhedberg/matchit'
 
 "Colorschemes"
 Plugin 'lsdr/monokai'
@@ -25,7 +26,7 @@ Plugin 'tomasr/molokai'
 Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
 
-"Javascript Specific"
+"Javascript"
 Plugin 'pangloss/vim-javascript'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'jelera/vim-javascript-syntax'
