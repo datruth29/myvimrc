@@ -9,7 +9,6 @@ call vundle#begin(path)
 "Plugins"
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Raimondi/delimitMate'
@@ -147,25 +146,8 @@ let delimitMate_expand_cr = 1
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabClosePreviewOnPopupClose = 1
 
-" EasyTags
-set tags=./tags;$HOME/vimtags;
-
-" Syntastic "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers=[]
-let g:syntastic_javascript_checkers=[]
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_python_flake8_post_args = "--max-line-length=99"
-highlight link SyntasticError Error
-highlight link SyntasticWarning WarningMsg
-
 " Python-Mode "
+let g:pymode_lint = 0
 let g:pymode_lint_on_write = 0
 let g:pymode_folding = 0
 let g:pymode_doc = 1
@@ -185,6 +167,17 @@ let g:jedi#popup_on_dot = 0
 let g:jedi#show_call_signatures = 2
 let g:jedi#use_tabs_not_buffers = 0
 let g:jedi#use_splits_not_buffers = "left"
+
+" Ale "
+let g:ale_open_list = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 0
+let g:ale_lints = {
+\ 'javascript': ['eslint'],
+\ 'python': ['flake8'],
+\}
+let g:ale_python_flake8_args = '--ignore E501,E121,E123,E126,E133,E226,E241,E242,E704,W503'
 
 " Syntax highlighting file extensions "
 au BufNewFile,BufRead *.md set syntax=markdown
