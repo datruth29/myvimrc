@@ -154,7 +154,9 @@ let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8']}
 let g:ale_lint_delay = 1000
 let g:ale_lint_on_enter = 0
 let g:ale_statusline_format = ['!: %d', '? %d', 'OK']
+
 " Python-Mode "
+let g:pymode_lint = 0
 let g:pymode_lint_on_write = 0
 let g:pymode_folding = 0
 let g:pymode_doc = 1
