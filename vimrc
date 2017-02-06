@@ -44,7 +44,7 @@ call vundle#end()
 
 "Base vimrc settings"
 filetype plugin indent on
-colorscheme monokai
+colorscheme molokai
 
 
 " Dealing with tabs
