@@ -9,7 +9,6 @@ call vundle#begin(path)
 "Plugins"
 Plugin 'gmarik/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Raimondi/delimitMate'
@@ -150,21 +149,11 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 " EasyTags
 set tags=./tags;$HOME/vimtags;
 
-" Syntastic "
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers=[]
-let g:syntastic_javascript_checkers=[]
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_python_flake8_post_args = "--max-line-length=99"
-highlight link SyntasticError Error
-highlight link SyntasticWarning WarningMsg
-
+" Ale
+let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8']}
+let g:ale_lint_delay = 1000
+let g:ale_lint_on_enter = 0
+let g:ale_statusline_format = ['!: %d', '? %d', 'OK']
 " Python-Mode "
 let g:pymode_lint_on_write = 0
 let g:pymode_folding = 0
@@ -172,7 +161,6 @@ let g:pymode_doc = 1
 let g:pymode_doc_bind = 'K'
 let g:pymode_virtualenv = 1
 let g:pymode_breakpoint = 0
-let g:pymode_syntax = 1
 let g:pymode_rope = 0
 let g:pymode_syntax = 0
 let g:pymode_syntax_all = 0
