@@ -151,8 +151,9 @@ set tags=./tags;$HOME/vimtags;
 
 " Ale
 let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8']}
-let g:ale_lint_delay = 1000
+let g:ale_lint_on_text_changed = 0
 let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
 let g:ale_statusline_format = ['!: %d', '? %d', 'OK']
 
 " Python-Mode "
