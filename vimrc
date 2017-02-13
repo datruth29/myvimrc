@@ -16,7 +16,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'ervandew/supertab'
 Plugin 'tmhedberg/matchit'
 Plugin 'w0rp/ale'
-
+Plugin 'skywind3000/asyncrun.vim'
 
 "Colorschemes"
 Plugin 'lsdr/monokai'
