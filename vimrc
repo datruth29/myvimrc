@@ -2,9 +2,14 @@ set nocompatible
 
 "Needed to set Vundle"
 filetype off
-set rtp+=~/vimfiles/bundle/Vundle.vim/
-let path='~/vimfiles/bundle'
-call vundle#begin(path)
+if has('win32')
+    set rtp+=~/vimfiles/bundle/Vundle.vim/
+    let path='~/vimfiles/bundle'
+    call vundle#begin(path)
+else
+    set rtp+=~/.vim/bundle/Vundle.vim/
+    call vundle#begin()
+endif
 
 "Plugins"
 Plugin 'gmarik/Vundle.vim'
