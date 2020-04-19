@@ -1,0 +1,7 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =5
+let g:netrw_dirhist_5='C:\tools\vim\vim82'
+let g:netrw_dirhist_4='C:/Users/Adam Collado/vimfiles/ftplugin'
+let g:netrw_dirhist_3='C:/Users/Adam Collado/vimfiles'
+let g:netrw_dirhist_2='C:/Users/Adam Collado'
+let g:netrw_dirhist_1='C:\Users\Adam Collado\vimfiles'

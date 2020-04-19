@@ -1,56 +1,29 @@
 set nocompatible
 
-"Needed to set Vundle"
-filetype off
-if has('win32')
-    set rtp+=~/vimfiles/bundle/Vundle.vim/
-    let path='~/vimfiles/bundle'
-    call vundle#begin(path)
-else
-    set rtp+=~/.vim/bundle/Vundle.vim/
-    call vundle#begin()
-endif
-
-"Plugins"
-Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Raimondi/delimitMate'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'ervandew/supertab'
-Plugin 'tmhedberg/matchit'
-Plugin 'w0rp/ale'
-Plugin 'skywind3000/asyncrun.vim'
-
+call plug#begin('~/vimfiles/bundle')
+"Plugs"
+Plug 'scrooloose/nerdtree'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Raimondi/delimitMate'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ervandew/supertab'
+Plug 'tmhedberg/matchit'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'nvie/vim-flake8', {'for': 'python'}
 "Colorschemes"
-Plugin 'lsdr/monokai'
-Plugin 'tomasr/molokai'
+Plug 'lsdr/monokai'
+Plug 'tomasr/molokai'
 
 "Language Specific"
 "Python"
-Plugin 'klen/python-mode'
-Plugin 'davidhalter/jedi-vim'
-
-"Javascript"
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'jelera/vim-javascript-syntax'
-
-" C/C++
-Plugin 'octol/vim-cpp-enhanced-highlight'
-
-" Postgresql
-Plugin 'exu/pgsql.vim'
 
 "Quality of Life"
-Plugin 'bronson/vim-trailing-whitespace'
-call vundle#end()
+Plug 'bronson/vim-trailing-whitespace'
+call plug#end()
 
 "Base vimrc settings"
-filetype plugin indent on
 colorscheme molokai
-
 
 " Dealing with tabs
 set expandtab
@@ -90,7 +63,7 @@ au FileType * setlocal formatoptions-=r formatoptions-=o
 au FileType python set omnifunc=pythoncomplete#Complete
 
 " Changes for command line tab completion
-set wildmode=longest,list,full
+set wildmode=longest:list,full
 set wildmenu
 
 " Misc
@@ -140,9 +113,6 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_theme = 'molokai'
 
-"Javascript Syntex"
-let g:used_javascript_libs = 'jquery'
-
 "DelimitMate"
 let delimitMate_expand_space = 1
 let delimitMate_expand_cr = 1
@@ -151,36 +121,26 @@ let delimitMate_expand_cr = 1
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabClosePreviewOnPopupClose = 1
 
-" EasyTags
-set tags=./tags;$HOME/vimtags;
-
-" Ale
-let g:ale_linters = {'javascript': ['eslint'], 'python': ['flake8']}
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 1
-let g:ale_statusline_format = ['!: %d', '? %d', 'OK']
-
 " Python-Mode "
-let g:pymode_lint = 0
-let g:pymode_lint_on_write = 0
-let g:pymode_folding = 0
-let g:pymode_doc = 1
-let g:pymode_doc_bind = 'K'
-let g:pymode_virtualenv = 1
-let g:pymode_breakpoint = 0
-let g:pymode_rope = 0
-let g:pymode_syntax = 0
-let g:pymode_syntax_all = 0
-let g:pymode_syntax_space_errors = 0
-let g:pymode_options_max_line_length = 99
+" let g:pymode_lint = 0
+" let g:pymode_lint_on_write = 0
+" let g:pymode_folding = 0
+" let g:pymode_doc = 1
+" let g:pymode_doc_bind = 'K'
+" let g:pymode_virtualenv = 1
+" let g:pymode_breakpoint = 0
+" let g:pymode_rope = 0
+" let g:pymode_syntax = 0
+" let g:pymode_syntax_all = 0
+" let g:pymode_syntax_space_errors = 0
+" let g:pymode_options_max_line_length = 99
 
 " Jedi "
-let g:jedi#auto_vim_configuration = 1
-let g:jedi#popup_on_dot = 0
-let g:jedi#show_call_signatures = 2
-let g:jedi#use_tabs_not_buffers = 0
-let g:jedi#use_splits_not_buffers = "left"
+" " let g:jedi#auto_vim_configuration = 1
+" let g:jedi#popup_on_dot = 0
+" let g:jedi#show_call_signatures = 2
+" let g:jedi#use_tabs_not_buffers = 0
+" let g:jedi#use_splits_not_buffers = "left"
 
 " Syntax highlighting file extensions "
 au BufNewFile,BufRead *.md set syntax=markdown
@@ -199,3 +159,12 @@ nmap <Leader>P "+P
 
 " Create new lines without going into insert mode
 nmap <Leader><CR> m`o<ESC>``
+
+" Flake8
+autocmd BufWritePost *.py call Flake8()
+
+" Python Highlighting
+let python_highlight_all = 1
+
+"Neovim Python"
+let g:python3_host_prog='C:/Userse/Adam Collado/.virtualenvs/nvim3/Scripts/python.exe'
